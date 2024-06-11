@@ -87,7 +87,7 @@ public class ControllerAdvice {
                 + "no está presente, verifica que la ruta tenga el siguiente formato 'dia?fecha='")
                 .Exception("MissingServletRequestParameterException")
                 .build();
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST); 
     }
   
 }
