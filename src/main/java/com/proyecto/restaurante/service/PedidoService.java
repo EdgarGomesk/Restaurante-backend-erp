@@ -2,9 +2,7 @@ package com.proyecto.restaurante.service;
 
 import com.proyecto.restaurante.entity.Pedido;
 import com.proyecto.restaurante.repository.PedidoRepository;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,6 @@
 package com.proyecto.restaurante.controller;
 
 import com.proyecto.restaurante.entity.Detalle;
-import com.proyecto.restaurante.repository.DetalleRepository;
 import com.proyecto.restaurante.service.DetalleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
