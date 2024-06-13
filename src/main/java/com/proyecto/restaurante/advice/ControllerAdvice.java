@@ -10,6 +10,7 @@ import com.proyecto.restaurante.exception.IdNoEncontradoException;
 import com.proyecto.restaurante.exception.NombreNoValidoException;
 import com.proyecto.restaurante.exception.PedidoNuloException;
 import com.proyecto.restaurante.exception.PrecioNoValidoException;
+import java.time.format.DateTimeParseException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -89,6 +90,11 @@ public class ControllerAdvice {
                 .build();
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST); 
     }
-  
+    @ExceptionHandler(value = DateTimeParseException.class)
+    public ResponseEntity<ErrorDto> MissingServletRequestParameterExceptionHandler(DateTimeParseException ex) {
+        ErrorDto error = ErrorDto.builder().code("p-420").message("El formato de fecha no coincide con el esperado 'yyyy-MM-dd'")
+                .Exception("MissingServletRequestParameterException")
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST); 
+    }
 }
-
