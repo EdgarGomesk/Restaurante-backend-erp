@@ -41,4 +41,9 @@ public class PedidoService {
     public List<Pedido> obtenerPedidosEntreFechas(LocalDateTime startDate, LocalDateTime endDate) {
         return pedidoRepository.findPedidosEntreFechas(startDate, endDate);
     }
+
+    public List<Pedido> obtenerPedidosPagados() {
+        return pedidoRepository.findPedidosPagados();
+    }
+
 }

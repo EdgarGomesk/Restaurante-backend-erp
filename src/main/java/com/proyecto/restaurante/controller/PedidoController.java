@@ -40,4 +40,10 @@ public class PedidoController {
         List<Pedido> listaPedidos = pedidoService.obtenerPedidosEntreFechas(startDate, endDate);
         return ResponseEntity.status(HttpStatus.OK).body(listaPedidos);
     }
+
+    @GetMapping("/pagado")
+    public ResponseEntity<List<Pedido>> obtenerPedidosPagados() {
+        List<Pedido> listaPedidos = pedidoService.obtenerPedidosPagados();
+        return ResponseEntity.status(HttpStatus.OK).body(listaPedidos);
+    }
 }
