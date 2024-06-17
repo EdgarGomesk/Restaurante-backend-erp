@@ -46,4 +46,10 @@ public class PedidoController {
         List<Pedido> listaPedidos = pedidoService.obtenerPedidosPagados();
         return ResponseEntity.status(HttpStatus.OK).body(listaPedidos);
     }
+
+    @GetMapping("/nopagado")
+    public ResponseEntity<List<Pedido>> obtenerPedidosNoPagados() {
+        List<Pedido> listaPedidosNoPagados = pedidoService.obtenerPedidosNoPagados();
+        return ResponseEntity.status(HttpStatus.OK).body(listaPedidosNoPagados);
+    }
 }

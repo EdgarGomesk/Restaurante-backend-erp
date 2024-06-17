@@ -46,4 +46,8 @@ public class PedidoService {
         return pedidoRepository.findPedidosPagados();
     }
 
+    public List<Pedido> obtenerPedidosNoPagados() {
+        return pedidoRepository.findPedidosNoPagados();
+    }
+
 }
