@@ -1,5 +1,6 @@
 package com.proyecto.restaurante.controller;
 
+import com.proyecto.restaurante.dto.PedidoDto;
 import com.proyecto.restaurante.entity.Pedido;
 import com.proyecto.restaurante.service.PedidoService;
 import java.time.LocalDate;
@@ -48,8 +49,8 @@ public class PedidoController {
     }
 
     @GetMapping("/nopagado")
-    public ResponseEntity<List<Pedido>> obtenerPedidosNoPagados() {
-        List<Pedido> listaPedidosNoPagados = pedidoService.obtenerPedidosNoPagados();
-        return ResponseEntity.status(HttpStatus.OK).body(listaPedidosNoPagados);
+    public ResponseEntity<List<PedidoDto>> obtenerPedidosNoPagados() {
+        List<PedidoDto> pedidos = pedidoService.obtenerPedidosNoPagados();
+        return new ResponseEntity<>(pedidos, HttpStatus.OK);
     }
 }

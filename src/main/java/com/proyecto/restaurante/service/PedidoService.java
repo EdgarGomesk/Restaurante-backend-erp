@@ -1,5 +1,6 @@
 package com.proyecto.restaurante.service;
 
+import com.proyecto.restaurante.dto.PedidoDto;
 import com.proyecto.restaurante.entity.Pedido;
 import com.proyecto.restaurante.repository.PedidoRepository;
 import java.time.LocalDateTime;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PedidoService {
@@ -46,8 +48,9 @@ public class PedidoService {
         return pedidoRepository.findPedidosPagados();
     }
 
-    public List<Pedido> obtenerPedidosNoPagados() {
-        return pedidoRepository.findPedidosNoPagados();
+    public List<PedidoDto> obtenerPedidosNoPagados() {
+        List<Pedido> listPedidosNoPagados = pedidoRepository.findPedidosNoPagados();
+        return listPedidosNoPagados.stream().map(pedido -> new PedidoDto(pedido.getId(), pedido.getTotal(), pedido.getPagado(), pedido.getFecha())).collect(Collectors.toList());
     }
 
 }
