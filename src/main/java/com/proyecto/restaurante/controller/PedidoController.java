@@ -2,6 +2,7 @@ package com.proyecto.restaurante.controller;
 
 import com.proyecto.restaurante.dto.PedidoDto;
 import com.proyecto.restaurante.entity.Pedido;
+import com.proyecto.restaurante.entity.Producto;
 import com.proyecto.restaurante.service.PedidoService;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -52,5 +53,11 @@ public class PedidoController {
     public ResponseEntity<List<PedidoDto>> obtenerPedidosNoPagados() {
         List<PedidoDto> pedidos = pedidoService.obtenerPedidosNoPagados();
         return new ResponseEntity<>(pedidos, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Pedido> actualizarPedido(@PathVariable Long id, @RequestBody Pedido pedido) {
+        pedidoService.actualizarPedido(id, pedido);
+        return ResponseEntity.status(HttpStatus.OK).body(pedido);
     }
 }
