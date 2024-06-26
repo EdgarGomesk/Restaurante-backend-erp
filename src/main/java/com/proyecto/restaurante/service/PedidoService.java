@@ -19,6 +19,7 @@ public class PedidoService {
 
     public void guardarPedido(Pedido pedido) {
         pedido.setFecha(LocalDateTime.now());
+        pedido.setPagado(false);
         pedidoRepository.save(pedido);
     }
 
